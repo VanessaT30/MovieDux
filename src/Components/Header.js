@@ -9,5 +9,4 @@ export default function Header() {
             <h2 className="app-substitle"> Its time for popcorn! Find your next movie here.</h2>
         </div>
     );
-
 };
