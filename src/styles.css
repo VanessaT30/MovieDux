@@ -249,3 +249,23 @@ input:checked + .slider:before {
 input:checked + .slider {
   background-color: #FFA100;
 }
+
+
+/* .random {
+  display: flex; 
+  background: white; 
+  border-radius: 12px; 
+  border: 0.5px solid #ddd; 
+  overflow: hidden;
+}
+
+.random2 {
+  width: 10px; 
+  background: #378ADD; 
+  flex-shrink: 0;
+}
+
+.random3{
+  flex: 1; 
+  padding: 1rem 1.25rem;
+} */
