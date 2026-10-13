@@ -1,10 +1,10 @@
 import logo from "./logo.svg";
 import "./App.css";
 import "./styles.css";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import MoviesGrid from "./components/MoviesGrid";
-import Filter from "./components/Filter";
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
+import MoviesGrid from "./Components/MoviesGrid";
+import Filter from "./Components/Filter";
 import { useEffect } from "react";
 
 function App() {
