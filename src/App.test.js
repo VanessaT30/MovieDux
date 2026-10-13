@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import MoviesGrid from './components/MoviesGrid';
+import MoviesGrid from './Components/MoviesGrid';
 
 beforeEach(() => {
   global.fetch = jest.fn(() =>
