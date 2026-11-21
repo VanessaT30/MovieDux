@@ -20,7 +20,7 @@ export default function MoviesGrid() {
   const chosenGenre = ["Fantasy", "Drama", "Horror", "Action"];
 
   useEffect(() => {
-    fetch("/movies.json")
+    fetch(`${process.env.PUBLIC_URL}/movies.json`)
       .then((res) => res.json())
       .then((data) => setMovies(data));
     // setMovies = movies.parse()
