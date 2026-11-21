@@ -4,10 +4,8 @@ import "./styles.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import MoviesGrid from "./components/MoviesGrid";
-// import Filter from "./components/Filter";
-import { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-import Watchlist from "./components/Watchlist";
+import Filter from "./components/Filter";
+import { useEffect } from "react";
 
 function App() {
   const [movies, setMovies] = useState([]);
