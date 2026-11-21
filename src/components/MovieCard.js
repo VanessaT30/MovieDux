@@ -9,23 +9,24 @@ export default function MovieCard({
   isWatchlisted,
 }) {
   const handleImageError = (e) => {
-    e.target.src = "/images/default.jpg";
+    e.target.src = `${process.env.PUBLIC_URL}/images/default.jpg`;
   };
 
   return (
-    <div key={m.id} className="movie-card">
-      <img
-        src={`/images/${m.image}`}
-        alt={m.title}
-        onError={handleImageError}
-      />
-      <div className="movie-card-info">
-        <p className="movie-card-title"> {m.title} </p>
-        <div>
-          <span className="movie-card-genre"> {m.genre} </span>
-          <span className={`movie-card-rating ${getRatingClass(m.rating)}`}>
-            {m.rating}
-          </span>
+    <div>
+      <div key={m.id} className="movie-card">
+        {/* {m.filter((item) => Filter.genre === item.genre)} */}
+        <img
+          src={`/images/${m.image}`}
+          alt={m.title}
+          onError={handleImageError}
+        />
+        <div className="movie-card-info">
+          <p className="movie-card-title"> {m.title} </p>
+          <p className="movie-card-genre"> {m.genre} </p>
+          <div className={`movie-card-rating ${getRatingClass(m.rating)}`}>
+            <p> {m.rating} </p>
+          </div>
         </div>
         <label className="switch">
           <input

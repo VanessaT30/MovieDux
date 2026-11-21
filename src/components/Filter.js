@@ -5,7 +5,7 @@ export default function Filter() {
   const [movies, setMovies] = useState([]);
   const [genre, setGenre] = useState("");
   useEffect(() => {
-    fetch("/movies.json")
+    fetch(`${process.env.PUBLIC_URL}/movies.json`)
       .then((res) => res.json()) //convert the fetch response into JSON
       .then((data) => setMovies(data));
   }, []);
