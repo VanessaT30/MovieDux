@@ -18,15 +18,13 @@ export default function Filter() {
       {/* <div key={m.id}>  */}
 
       <div className=" filter-bar">
-        {}
         <select className="filter-dropdown" name="genre">
-          <option value={setGenre("fantasy")}> Fantasy </option>
+          <option value={"Fantasy"}> Fantasy </option>
           <option value={"Drama"}> Drama </option>
           <option value={"Horror"}> Horror </option>
           <option value={"Action"}> Action </option>
-          const selectEl = document.get console.log(select.value);
+          console.log(select.value);
         </select>
-
         <select className="filter-dropdown" name="rating">
           <option> 1 </option>
           <option> 2 </option>
@@ -35,7 +33,7 @@ export default function Filter() {
           <option> 5 </option>
         </select>
       </div>
-      {movies.filter((m) => m.title === "genre")}
+      {movies.filter((m) => m.title === genre)}
 
       {/* ))}         */}
       <div className=""></div>
