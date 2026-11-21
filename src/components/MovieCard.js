@@ -5,14 +5,14 @@ import Filter from "./Filter";
 
 export default function MovieCard({ m }) {
   const handleImageError = (e) => {
-    e.target.src = "/images/default.jpg";
+    e.target.src = `${process.env.PUBLIC_URL}/images/default.jpg`;
   };
   return (
     <div>
       <div key={m.id} className="movie-card">
         {/* {m.filter((item) => Filter.genre === item.genre)} */}
         <img
-          src={`/images/${m.image}`}
+          src={`${process.env.PUBLIC_URL}/images/${m.image}`}
           alt={m.title}
           onError={handleImageError}
         />
