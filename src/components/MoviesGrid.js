@@ -16,52 +16,25 @@ export default function MoviesGrid({ movies, watchlist, toggleWatchlist }) {
   const [genreFilter, setGenreFilter] = useState("");
   const [ratingFilter, setRatingFilter] = useState("");
 
-  const chosenGenre = ["Fantasy", "Drama", "Horror", "Action"];
+  const filtered = movies.filter((m) => {
+    const matchSearchTerm = m.title
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase());
 
-  useEffect(() => {
-    fetch("/movies.json")
-      .then((res) => res.json())
-      .then((data) => setMovies(data));
-    // setMovies = movies.parse()
-  }, []);
+    const matchRatingNum =
+      ratingFilter === "" || Number(m.rating) >= Number(ratingFilter);
 
-  const ratingNumber = () => {
-    const ratingNum = [];
-    for (let i = 0; i <= 10; i++) {
-      ratingNum.push(i);
-    }
-    return ratingNum;
-  };
+    const matchGenre =
+      genreFilter === "" ||
+      genreFilter.toLocaleLowerCase() === m.genre.toLocaleLowerCase();
 
-  function handleSearch(e) {
-    const searchTerm = e.target.value.toLowerCase();
-    setSearchTerm(searchTerm);
-    console.log(searchTerm);
-    // console.log(e);
-  }
+    return matchSearchTerm && matchRatingNum && matchGenre;
+  });
 
-  function handleGenre(e) {
-    const genre = e.target.value.toLowerCase();
-    setGenre(genre);
-    console.log(e.target.value);
-  }
-
-  function handleRating(e) {
-    const rating = e.target.value.toLowerCase();
-    setRating(rating);
-    console.log(rating);
-    // console.log(e);
-  }
-
-  const filterGenre = (movie, genre) => {
-    return genre === "" || genre.toLowerCase() === movie.genre.toLowerCase();
-  };
-
-  const filterSearchChange = (movie, searchTerm) => {
-    return (
-      searchTerm === "" ||
-      movie.title.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+  const genres = ["Fantasy", "Drama", "Horror", "Action"];
+  const handleGenreFilter = (e) => {
+    // console.log(e.target.value);
+    return setGenreFilter(e.target.value);
   };
 
   const numberFilter = () => {
