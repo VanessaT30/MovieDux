@@ -1,23 +1,21 @@
-import logo from "./logo.svg";
+import moviesData from "./data/movies.json";
 import "./App.css";
 import "./styles.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import MoviesGrid from "./components/MoviesGrid";
 // import Filter from "./components/Filter";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Watchlist from "./components/Watchlist";
 
 function App() {
-  const [movies, setMovies] = useState([]);
+  const publicUrl =
+    window.location.hostname === "vanessat30.github.io"
+      ? process.env.PUBLIC_URL
+      : "";
+  const [movies] = useState(moviesData);
   const [watchlist, setWatchlist] = useState([]);
-
-  useEffect(() => {
-    fetch("/movies.json")
-      .then((res) => res.json())
-      .then((data) => setMovies(data));
-  }, []);
 
   const toggleWatchlist = (movieId) => {
     setWatchlist((prev) =>
@@ -32,7 +30,7 @@ function App() {
       <div className="container">
         <Header> </Header>
 
-        <Router>
+        <Router basename={publicUrl}>
           <nav>
             <ul>
               <li>

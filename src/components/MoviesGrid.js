@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../styles.css";
+import moviesData from "../data/movies.json";
 import MovieCard from "./MovieCard";
 // import Filter from "./Filter";
 // import movies from "../data/movies.json";
@@ -11,7 +11,13 @@ export const getRatingClass = (rating) => {
   return "rating-bad";
 };
 
-export default function MoviesGrid({ movies, watchlist, toggleWatchlist }) {
+export default function MoviesGrid({
+  movies: providedMovies,
+  watchlist = [],
+  toggleWatchlist = () => {},
+}) {
+  const movies = providedMovies ?? moviesData;
+
   const [searchTerm, setSearchTerm] = useState("");
   const [genreFilter, setGenreFilter] = useState("");
   const [ratingFilter, setRatingFilter] = useState("");
